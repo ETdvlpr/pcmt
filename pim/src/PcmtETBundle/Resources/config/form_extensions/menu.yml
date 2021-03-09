@@ -1,0 +1,47 @@
+extensions:
+
+    pcmt_custom-menu-reference_data-item-Manufacturer:
+        module: pim/menu/item
+        parent: pcmt_custom-menu-reference_entity-navigation-block
+        position: 10
+        config:
+            title: pcmt_custom.Manufacturer.menu.item
+            to: pim_customentity_index
+            routeParams:
+                customEntityName: manufacturer
+
+    pcmt_custom-menu-reference_data-item-EtBrand:
+        module: pim/menu/item
+        parent: pcmt_custom-menu-reference_entity-navigation-block
+        position: 20
+        config:
+            title: pcmt_custom.EtBrand.menu.item
+            to: pim_customentity_index
+            routeParams:
+                customEntityName: etbrand
+
+    pcmt_custom-menu-reference_entity-navigation-block:
+        module: pim/menu/navigation-block
+        parent: pcmt_custom-menu-reference_entity-column
+        targetZone: navigation
+        config:
+            title: Reference Entities
+
+    pcmt_custom-menu-reference_entity-column:
+        module: pim/menu/column
+        parent: pim-menu
+        position: 500
+        targetZone: column
+        config:
+            stateCode: pcmt_custom-menu-reference_entity
+            tab: pcmt_custom-menu-reference_entity
+            navigationTitle: Reference Entities
+        
+    pcmt_custom-menu-reference_entity:
+        module: pim/menu/tab
+        parent: pim-menu
+        position: 35
+        targetZone: mainMenu
+        config:
+            title: Entities
+            iconModifier: iconReferenceEntity

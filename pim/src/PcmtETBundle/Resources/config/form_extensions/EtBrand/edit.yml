@@ -1,0 +1,146 @@
+extensions:
+    pim-etbrand-edit-form:
+        module: custom_entity/form/common/edit-form
+
+    pim-etbrand-edit-form-breadcrumbs:
+        module: pim/common/breadcrumbs
+        parent: pim-etbrand-edit-form
+        targetZone: breadcrumbs
+        config:
+            tab: pcmt_custom-menu-reference_entity
+            item: pcmt_custom-menu-reference_data-item-EtBrand
+
+    pim-etbrand-edit-form-cache-invalidator:
+        module: pim/cache-invalidator
+        parent: pim-etbrand-edit-form
+        position: 1000
+
+    pim-etbrand-edit-form-label:
+        module: custom_entity/form/common/label
+        parent: pim-etbrand-edit-form
+        targetZone: title
+        position: 90
+
+    pim-etbrand-edit-form-form-tabs:
+        module: pim/form/common/form-tabs
+        parent: pim-etbrand-edit-form
+        targetZone: content
+        position: 100
+
+    pim-etbrand-edit-form-secondary-actions:
+        module: pim/form/common/secondary-actions
+        parent: pim-etbrand-edit-form
+        targetZone: buttons
+        position: 50
+
+    pim-etbrand-edit-form-delete:
+        module: custom_entity/form/common/delete
+        parent: pim-etbrand-edit-form-secondary-actions
+        targetZone: secondary-actions
+        aclResourceId: pim_enrich_group_remove
+        position: 100
+        config:
+            route: pim_customentity_rest_delete
+            routeParams:
+                customEntityName: etbrand
+            trans:
+                title: pcmt_custom.EtBrand.messages.remove.confirm
+                container: pim_enrich.confirmation.delete_item
+                success: pcmt_custom.EtBrand.messages.remove.success
+                fail: pcmt_custom.EtBrand.messages.remove.fail
+            redirect: pim_customentity_index
+
+    pim-etbrand-edit-form-save-buttons:
+        module: pim/form/common/save-buttons
+        parent: pim-etbrand-edit-form
+        targetZone: buttons
+        position: 120
+
+    pim-etbrand-edit-form-state:
+        module: pim/form/common/state
+        parent: pim-etbrand-edit-form
+        targetZone: state
+        position: 900
+        config:
+            entity: pim_enrich.entity.group.title
+
+    pim-etbrand-edit-form-save:
+        module: custom_entity/form/common/save-form
+        parent: pim-etbrand-edit-form
+        targetZone: buttons
+        position: 0
+        config:
+            updateSuccessMessage: pcmt_custom.EtBrand.messages.edit.success
+            updateFailureMessage: pcmt_custom.EtBrand.messages.edit.fail
+            notReadyMessage: pcmt_custom.EtBrand.info.field_not_ready
+            url: pim_customentity_rest_edit
+            route_params:
+                customEntityName: etbrand
+            redirectAfter: pim_customentity_rest_get
+            excludedProperties: []
+
+    pim-etbrand-edit-form-properties-tab:
+        module: pim/common/tab
+        parent: pim-etbrand-edit-form-form-tabs
+        targetZone: container
+        position: 100
+        config:
+            label: pim_custom_entity.form.tab.properties.title
+
+    # pim-etbrand-edit-form-history:
+    #     module: pim/common/tab/history
+    #     parent: pim-etbrand-edit-form-form-tabs
+    #     targetZone: container
+    #     position: 110
+    #     config:
+    #         class: etbrand
+    #         title: pim_custom_entity.form.tab.history.title
+
+    pim-etbrand-edit-form-properties:
+        module: pim/common/simple-view
+        parent: pim-etbrand-edit-form-properties-tab
+        targetZone: self
+        config:
+            template: pim/template/form/tab/sections
+
+    pim-etbrand-edit-form-properties-common:
+        module: pim/common/simple-view
+        parent: pim-etbrand-edit-form-properties
+        targetZone: accordion
+        position: 100
+        config:
+            template: pim/template/form/tab/section
+            templateParams:
+                sectionTitle: pim_custom_entity.form.tab.properties.section.common
+                dropZone: content
+
+    pim-etbrand-edit-form-properties-code:
+        module: pim/form/common/fields/text
+        parent: pim-etbrand-edit-form-properties-common
+        targetZone: content
+        position: 90
+        config:
+            fieldName: code
+            label: pcmt_custom.EtBrand.field.label.code
+            required: true
+            readOnly: true
+
+    pim-etbrand-edit-form-properties-name:
+        module: pim/form/common/fields/text
+        parent: pim-etbrand-edit-form-properties-common
+        targetZone: content
+        position: 100
+        config:
+            fieldName: name
+            label: pcmt_custom.EtBrand.field.label.name
+            required: true
+
+    pim-etbrand-edit-form-properties-sn:
+        module: pim/form/common/fields/text
+        parent: pim-etbrand-edit-form-properties-common
+        targetZone: content
+        position: 110
+        config:
+            fieldName: sn
+            label: S/N
+            required: true

@@ -1,0 +1,65 @@
+extensions:
+    pim-manufacturer-create-modal:
+        module: custom_entity/form/creation/modal
+        config:
+            labels:
+                title: pcmt_custom.Manufacturer.create_title
+                subtitle: pcmt_custom.reference_entities
+            picture: illustrations/User.svg
+            successMessage: pim_custom_entity.message.created
+            editRoute: pim_customentity_rest_get
+            postUrl:
+                route: pim_customentity_rest_create
+                parameters:
+                    customEntityName: manufacturer
+
+    pim-manufacturer-create-code:
+        module: pim/form/common/creation/field
+        parent: pim-manufacturer-create-modal
+        targetZone: fields
+        position: 10
+        config:
+            identifier: code
+            label: pim_custom_entity.form.field.label.code
+            
+
+    pim-manufacturer-create-name:
+        module: pim/form/common/creation/field
+        parent: pim-manufacturer-create-modal
+        targetZone: fields
+        position: 20
+        config:
+            identifier: name
+            label: Name
+            
+    pim-manufacturer-create-countryoforigin:
+        module: pcmt/custom/form/properties/et_country_codes
+        # module: pim/form/common/fields/select
+        parent: pim-manufacturer-create-modal
+        targetZone: fields
+        position: 30
+        config:
+            fieldName: countryoforigin
+            label: Country of origin
+
+    # pim-manufacturer-create-countryoforigin:
+    #     module: custom_entity/field/custom-entity-select
+    #     parent: pim-manufacturer-create-modal
+    #     targetZone: fields
+    #     position: 30
+    #     config:
+    #         fieldName: countryoforigin
+    #         choiceNameField: code
+    #         choiceValueField: name
+    #         isCustomEntity: true
+    #         entityName: EtCountryCode
+    #         required: false
+
+    pim-manufacturer-create-sn:
+        module: pim/form/common/creation/field
+        parent: pim-manufacturer-create-modal
+        targetZone: fields
+        position: 50
+        config:
+            identifier: sn
+            label: S/N

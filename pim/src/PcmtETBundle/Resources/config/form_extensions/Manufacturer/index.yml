@@ -1,0 +1,84 @@
+extensions:
+    pim-manufacturer-index:
+        module: pim/common/simple-view
+        config:
+            template: pim/template/common/default-template
+        forwarded-events:
+            grid_load:start: grid_load:start
+            grid_load:complete: grid_load:complete
+
+    pim-manufacturer-index-grid-container:
+        module: pim/common/simple-view
+        parent: pim-manufacturer-index
+        targetZone: content
+        config:
+            template: pim/template/form/index/index
+
+    pim-manufacturer-index-user-navigation:
+        module: pim/menu/user-navigation
+        parent: pim-manufacturer-index
+        targetZone: user-menu
+        config:
+            userAccount: pim_menu.user.user_account
+            logout: pim_menu.user.logout
+
+    pim-manufacturer-index-grid-title:
+        module: pim/common/grid-title
+        parent: pim-manufacturer-index
+        targetZone: title
+        config:
+            title: pcmt_custom.Manufacturer.index_title
+         
+    pim-manufacturer-index-breadcrumbs:
+        module: pim/common/breadcrumbs
+        parent: pim-manufacturer-index
+        targetZone: breadcrumbs
+        config:
+            tab: pcmt_custom-menu-reference_entity
+            item: pcmt_custom-menu-reference_data-item-Manufacturer
+
+    pim-manufacturer-index-grid-filters-list:
+        module: oro/datafilter/filters-list
+        parent: pim-manufacturer-index-grid-container
+        targetZone: filters
+
+    pim-manufacturer-index-grid-filters-manage:
+        module: oro/datafilter/filters-button
+        parent: pim-manufacturer-index-grid-container
+        targetZone: filters
+
+    pim-manufacturer-index-mass-actions:
+        module: pim/grid/mass-actions
+        parent: pim-manufacturer-index
+        targetZone: bottom-panel
+        config:
+            label: pcmt_custom.Manufacturer.selected
+
+    pim-manufacturer-index-actions-panel:
+        module: oro/datagrid/actions-panel
+        parent: pim-manufacturer-index-mass-actions
+        targetZone: actions-panel
+
+    pim-manufacturer-index-pagination:
+        module: oro/datagrid/pagination-input
+        parent: pim-manufacturer-index-grid-container
+        targetZone: toolbar
+        config:
+            gridName: manufacturer
+
+    pim-manufacturer-index-grid:
+        module: pim/form/common/index/grid
+        parent: pim-manufacturer-index
+        targetZone: content
+        position: 1000
+        config:
+            alias: manufacturer
+
+    pim-manufacturer-index-create-button:
+        module: pim/form/common/index/create-button
+        parent: pim-manufacturer-index
+        targetZone: buttons
+        aclResourceId: pim_enrich_product_create
+        config:
+           title:     pim_custom_entity.button.create
+           modalForm: pim-manufacturer-create-modal

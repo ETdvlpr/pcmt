@@ -1,0 +1,10 @@
+parameters:
+  api_ref_data.controller.reference_data.class: PcmtETBundle\Controller\ReferenceDataController
+
+services:
+  api_ref_data.controller.reference_data:
+    class: '%api_ref_data.controller.reference_data.class%'
+    arguments:
+      - '@pim_serializer'
+      - '@doctrine.orm.entity_manager'
+      - '@pim_custom_entity.configuration.registry'

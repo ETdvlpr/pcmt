@@ -1,0 +1,17 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+custom_entities:
+  etcountrycode:
+    entity_class: PcmtETBundle\Entity\ReferenceData\EtCountryCode
+  manufacturer:
+    entity_class: PcmtETBundle\Entity\ReferenceData\Manufacturer
+    options:
+        edit_form_extension: pim-manufacturer-edit-form
+  etbrand:
+    entity_class: PcmtETBundle\Entity\ReferenceData\EtBrand
+    options:
+        edit_form_extension: pim-etbrand-edit-form

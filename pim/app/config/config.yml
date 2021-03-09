@@ -61,6 +61,15 @@ swiftmailer:
 
 akeneo_pim_structure:
     reference_data:
+        EtCountryCode:
+            class: PcmtETBundle\Entity\ReferenceData\EtCountryCode
+            type: simple
+        EtBrand:
+            class: PcmtETBundle\Entity\ReferenceData\EtBrand
+            type: simple
+        Manufacturer:
+            class: PcmtETBundle\Entity\ReferenceData\Manufacturer
+            type: simple
         AdditionalTradeItemClassificationCodeListCode:
             class: PcmtCoreBundle\Entity\ReferenceData\AdditionalTradeItemClassificationCodeListCode
             type: simple

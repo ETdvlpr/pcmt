@@ -1,0 +1,9 @@
+api_ref_data_reference_data_list:
+  path: /reference-data/{referenceName}
+  defaults: { _controller: api_ref_data.controller.reference_data:listAction, _format: json }
+  methods: [GET]
+
+api_ref_data_reference_data_get:
+  path: /reference-data/{referenceName}/{code}
+  defaults: { _controller: api_ref_data.controller.reference_data:getAction, _format: json }
+  methods: [GET]

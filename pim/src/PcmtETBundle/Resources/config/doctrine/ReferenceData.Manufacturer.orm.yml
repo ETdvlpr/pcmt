@@ -1,0 +1,46 @@
+
+PcmtETBundle\Entity\ReferenceData\Manufacturer:
+    type: entity
+    table: pcmt_custom_manufacturer
+    changeTrackingPolicy: DEFERRED_EXPLICIT
+    repositoryClass: Pim\Bundle\CustomEntityBundle\Entity\Repository\CustomEntityRepository
+    fields:
+        id: # required
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        code: # required
+            type: string
+            length: 255
+            unique: true
+        sortOrder: # required
+            type: integer
+        name:
+            type: string
+            length: 255
+        address:
+            type: string
+            length: 255
+            nullable: true
+        sn:
+            type: string
+            length: 255
+            nullable: true
+        gln:
+            type: string
+            length: 255
+            nullable: true
+
+    manyToOne:
+        countryoforigin:
+            targetEntity: PcmtETBundle\Entity\ReferenceData\EtCountryCode
+            joinColum:
+                name: countryoforigin
+                referencedColumnName: id
+                nullable: true
+                onDelete: 'SET NULL'
+
+    lifecycleCallbacks: {  }
+
+

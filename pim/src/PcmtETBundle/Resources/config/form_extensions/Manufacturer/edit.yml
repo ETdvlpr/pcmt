@@ -1,0 +1,191 @@
+extensions:
+    pim-manufacturer-edit-form:
+        module: custom_entity/form/common/edit-form
+
+    pim-manufacturer-edit-form-breadcrumbs:
+        module: pim/common/breadcrumbs
+        parent: pim-manufacturer-edit-form
+        targetZone: breadcrumbs
+        config:
+            tab: pcmt_custom-menu-reference_entity
+            item: pcmt_custom-menu-reference_data-item-Manufacturer
+
+    pim-manufacturer-edit-form-cache-invalidator:
+        module: pim/cache-invalidator
+        parent: pim-manufacturer-edit-form
+        position: 1000
+
+    pim-manufacturer-edit-form-label:
+        module: custom_entity/form/common/label
+        parent: pim-manufacturer-edit-form
+        targetZone: title
+        position: 90
+
+    pim-manufacturer-edit-form-form-tabs:
+        module: pim/form/common/form-tabs
+        parent: pim-manufacturer-edit-form
+        targetZone: content
+        position: 100
+
+    pim-manufacturer-edit-form-secondary-actions:
+        module: pim/form/common/secondary-actions
+        parent: pim-manufacturer-edit-form
+        targetZone: buttons
+        position: 50
+
+    pim-manufacturer-edit-form-delete:
+        module: custom_entity/form/common/delete
+        parent: pim-manufacturer-edit-form-secondary-actions
+        targetZone: secondary-actions
+        aclResourceId: pim_enrich_group_remove
+        position: 100
+        config:
+            route: pim_customentity_rest_delete
+            routeParams:
+                customEntityName: manufacturer
+            trans:
+                title: pcmt_custom.Manufacturer.messages.remove.confirm
+                container: pim_enrich.confirmation.delete_item
+                success: pcmt_custom.Manufacturer.messages.remove.success
+                fail: pcmt_custom.Manufacturer.messages.remove.fail
+            redirect: pim_customentity_index
+
+    pim-manufacturer-edit-form-save-buttons:
+        module: pim/form/common/save-buttons
+        parent: pim-manufacturer-edit-form
+        targetZone: buttons
+        position: 120
+
+    pim-manufacturer-edit-form-state:
+        module: pim/form/common/state
+        parent: pim-manufacturer-edit-form
+        targetZone: state
+        position: 900
+        config:
+            entity: pim_enrich.entity.group.title
+
+    pim-manufacturer-edit-form-save:
+        module: custom_entity/form/common/save-form
+        parent: pim-manufacturer-edit-form
+        targetZone: buttons
+        position: 0
+        config:
+            updateSuccessMessage: pcmt_custom.Manufacturer.messages.edit.success
+            updateFailureMessage: pcmt_custom.Manufacturer.messages.edit.fail
+            notReadyMessage: pcmt_custom.Manufacturer.info.field_not_ready
+            url: pim_customentity_rest_edit
+            route_params:
+                customEntityName: manufacturer
+            redirectAfter: pim_customentity_rest_get
+            excludedProperties: []
+
+    pim-manufacturer-edit-form-properties-tab:
+        module: pim/common/tab
+        parent: pim-manufacturer-edit-form-form-tabs
+        targetZone: container
+        position: 100
+        config:
+            label: pim_custom_entity.form.tab.properties.title
+
+    # pim-manufacturer-edit-form-history:
+    #     module: pim/common/tab/history
+    #     parent: pim-manufacturer-edit-form-form-tabs
+    #     targetZone: container
+    #     position: 110
+    #     config:
+    #         class: manufacturer
+    #         title: pim_custom_entity.form.tab.history.title
+
+    pim-manufacturer-edit-form-properties:
+        module: pim/common/simple-view
+        parent: pim-manufacturer-edit-form-properties-tab
+        targetZone: self
+        config:
+            template: pim/template/form/tab/sections
+
+    pim-manufacturer-edit-form-properties-common:
+        module: pim/common/simple-view
+        parent: pim-manufacturer-edit-form-properties
+        targetZone: accordion
+        position: 100
+        config:
+            template: pim/template/form/tab/section
+            templateParams:
+                sectionTitle: pim_custom_entity.form.tab.properties.section.common
+                dropZone: content
+
+    pim-manufacturer-edit-form-properties-code:
+        module: pim/form/common/fields/text
+        parent: pim-manufacturer-edit-form-properties-common
+        targetZone: content
+        position: 90
+        config:
+            fieldName: code
+            label: pcmt_custom.Manufacturer.field.label.code
+            required: true
+            readOnly: true
+
+    pim-manufacturer-edit-form-properties-name:
+        module: pim/form/common/fields/text
+        parent: pim-manufacturer-edit-form-properties-common
+        targetZone: content
+        position: 100
+        config:
+            fieldName: name
+            label: pcmt_custom.Manufacturer.field.label.name
+            required: true
+
+    pim-manufacturer-edit-form-properties-countryoforigin:
+        module: custom_entity/field/custom-entity-select
+        parent: pim-manufacturer-edit-form-properties-common
+        targetZone: content
+        position: 110
+        config:
+            fieldName: countryoforigin
+            choiceNameField: code
+            choiceValueField: name
+            isCustomEntity: true
+            entityName: etcountrycode
+            label: Country of origin
+            required: false
+            
+    # pim-manufacturer-edit-form-properties-countryoforigin:
+    #     module: pcmt/custom/form/properties/et_country_codes
+    #     # module: pim/form/common/fields/select
+    #     parent: pim-manufacturer-edit-form-properties-common
+    #     targetZone: content
+    #     position: 110
+    #     config:
+    #         fieldName: countryoforigin
+    #         label: Country of origin
+    #         required: true
+
+    pim-manufacturer-edit-form-properties-address:
+        module: pim/form/common/fields/text
+        parent: pim-manufacturer-edit-form-properties-common
+        targetZone: content
+        position: 120
+        config:
+            fieldName: address
+            label: Address
+            required: false
+
+    pim-manufacturer-edit-form-properties-sn:
+        module: pim/form/common/fields/text
+        parent: pim-manufacturer-edit-form-properties-common
+        targetZone: content
+        position: 130
+        config:
+            fieldName: sn
+            label: S/N
+            required: true
+
+    pim-manufacturer-edit-form-properties-gln:
+        module: pim/form/common/fields/text
+        parent: pim-manufacturer-edit-form-properties-common
+        targetZone: content
+        position: 140
+        config:
+            fieldName: gln
+            label: GLN
+            required: false

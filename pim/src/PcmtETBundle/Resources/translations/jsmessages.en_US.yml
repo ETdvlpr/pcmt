@@ -1,0 +1,96 @@
+api_ref_data:
+    acl:
+        reference_data:
+            get: 'Get Reference Data information'
+
+               
+pim_datagrid.mass_action.delete.confirm_title: This will delete all selected items
+pim_datagrid.mass_action.delete.confirm_ok: Delete
+pim.grid.mass_action.delete: Delete
+pcmt_custom:
+    acl:
+        manufacturer:
+            index: List Manufacturers
+            create: Create Manufacturer
+            edit: Edit Manufacturer
+            delete: Delete Manufacturer
+    reference_entities: Reference Entities
+    Manufacturer:
+        selected: Manufacturer(s) selected
+        menu.item: Manufacturer
+        field:
+            location: Location
+            name: Name
+            code: Code
+            label:
+                location: Location
+                name: Name
+                code: Code
+        create_title: Add new Manufacturer
+        index_title: Manufacturer overview
+        section:
+            code: Identifier
+            other: General information
+        messages:
+            created.success: The Manufacturer has been successfully created
+            remove:
+                confirm: Are you sure you want to remove this Manufacturer?
+                success: The Manufacturer has been successfully removed
+                fail: The Manufacturer has not been removed
+            edit:
+                success: The Manufacturer has been successfully updated
+                fail: The Manufacturer has not been updated
+        this:
+            edit: Edit this Manufacturer
+            show: Show this Manufacturer
+            delete: Delete this Manufacturer
+    EtBrand:
+        selected: Brand(s) selected
+        menu.item: Brand
+        field:
+            location: Location
+            name: Name
+            code: Code
+            label:
+                location: Location
+                name: Name
+                code: Code
+        create_title: Add new Brand
+        index_title: Brand overview
+        section:
+            code: Identifier
+            other: General information
+        messages:
+            created.success: The Brand has been successfully created
+            remove:
+                confirm: Are you sure you want to remove this Brand?
+                success: The Brand has been successfully removed
+                fail: The Brand has not been removed
+            edit:
+                success: The Brand has been successfully updated
+                fail: The Brand has not been updated
+        this:
+            edit: Edit this Brand
+            show: Show this Brand
+            delete: Delete this Brand
+ 
+pim_enrich.entity:
+    Manufacturer.module.delete.confirm: Are you sure you want to remove this Manufacturer?
+    manufacturer:
+        module.delete.confirm: Are you sure you want to remove this Manufacturer?
+        flash.delete.success: The Manufacturer has been successfully removed.
+        flash.delete.fail: The Manufacturer has not been removed.
+    EtBrand.module.delete.confirm: Are you sure you want to remove this Brand?
+    etbrand:
+        module.delete.confirm: Are you sure you want to remove this Brand?
+        flash.delete.success: The Brand has been successfully removed.
+        flash.delete.fail: The Brand has not been removed.
+
+error.removing.etbrand: The Brand has not been removed.
+
+error.removing.manufacturer: The Manufacturer has not been removed.
+
+pim_title.pim_customentity_rest_get: Reference entity edit
+
+pim_title.pim_customentity_index: Custom Entities
+PCMT_CUSTOM.MANUFACTURER.SELECTED : selected

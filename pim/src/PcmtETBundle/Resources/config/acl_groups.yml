@@ -1,0 +1,3 @@
+api_ref_data.acl_group.reference_data_get:
+    order: 10
+    permission_group: api

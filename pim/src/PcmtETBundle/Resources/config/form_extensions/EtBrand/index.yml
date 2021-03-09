@@ -1,0 +1,84 @@
+extensions:
+    pim-etbrand-index:
+        module: pim/common/simple-view
+        config:
+            template: pim/template/common/default-template
+        forwarded-events:
+            grid_load:start: grid_load:start
+            grid_load:complete: grid_load:complete
+
+    pim-etbrand-index-grid-container:
+        module: pim/common/simple-view
+        parent: pim-etbrand-index
+        targetZone: content
+        config:
+            template: pim/template/form/index/index
+
+    pim-etbrand-index-user-navigation:
+        module: pim/menu/user-navigation
+        parent: pim-etbrand-index
+        targetZone: user-menu
+        config:
+            userAccount: pim_menu.user.user_account
+            logout: pim_menu.user.logout
+
+    pim-etbrand-index-grid-title:
+        module: pim/common/grid-title
+        parent: pim-etbrand-index
+        targetZone: title
+        config:
+            title: pcmt_custom.EtBrand.index_title
+         
+    pim-etbrand-index-breadcrumbs:
+        module: pim/common/breadcrumbs
+        parent: pim-etbrand-index
+        targetZone: breadcrumbs
+        config:
+            tab: pcmt_custom-menu-reference_entity
+            item: pcmt_custom-menu-reference_data-item-EtBrand
+
+    pim-etbrand-index-grid-filters-list:
+        module: oro/datafilter/filters-list
+        parent: pim-etbrand-index-grid-container
+        targetZone: filters
+
+    pim-etbrand-index-grid-filters-manage:
+        module: oro/datafilter/filters-button
+        parent: pim-etbrand-index-grid-container
+        targetZone: filters
+
+    pim-etbrand-index-mass-actions:
+        module: pim/grid/mass-actions
+        parent: pim-etbrand-index
+        targetZone: bottom-panel
+        config:
+            label: pcmt_custom.EtBrand.selected
+
+    pim-etbrand-index-actions-panel:
+        module: oro/datagrid/actions-panel
+        parent: pim-etbrand-index-mass-actions
+        targetZone: actions-panel
+
+    pim-etbrand-index-pagination:
+        module: oro/datagrid/pagination-input
+        parent: pim-etbrand-index-grid-container
+        targetZone: toolbar
+        config:
+            gridName: etbrand
+
+    pim-etbrand-index-grid:
+        module: pim/form/common/index/grid
+        parent: pim-etbrand-index
+        targetZone: content
+        position: 1000
+        config:
+            alias: etbrand
+
+    pim-etbrand-index-create-button:
+        module: pim/form/common/index/create-button
+        parent: pim-etbrand-index
+        targetZone: buttons
+        aclResourceId: pim_enrich_product_create
+        config:
+           title:     pim_custom_entity.button.create
+           modalForm: pim-etbrand-create-modal

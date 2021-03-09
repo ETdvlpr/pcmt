@@ -1,0 +1,42 @@
+extensions:
+    pim-etbrand-create-modal:
+        module: custom_entity/form/creation/modal
+        config:
+            labels:
+                title: pcmt_custom.EtBrand.create_title
+                subtitle: pcmt_custom.reference_entities
+            picture: illustrations/User.svg
+            successMessage: pim_custom_entity.message.created
+            editRoute: pim_customentity_rest_get
+            postUrl:
+                route: pim_customentity_rest_create
+                parameters:
+                    customEntityName: etbrand
+
+    pim-etbrand-create-code:
+        module: pim/form/common/creation/field
+        parent: pim-etbrand-create-modal
+        targetZone: fields
+        position: 10
+        config:
+            identifier: code
+            label: pim_custom_entity.form.field.label.code
+            
+
+    pim-etbrand-create-name:
+        module: pim/form/common/creation/field
+        parent: pim-etbrand-create-modal
+        targetZone: fields
+        position: 20
+        config:
+            identifier: name
+            label: Name
+
+    pim-etbrand-create-sn:
+        module: pim/form/common/creation/field
+        parent: pim-etbrand-create-modal
+        targetZone: fields
+        position: 50
+        config:
+            identifier: sn
+            label: S/N

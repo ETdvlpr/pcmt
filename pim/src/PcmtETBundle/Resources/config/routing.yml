@@ -1,0 +1,3 @@
+api_ref_data:
+    resource: '@PcmtETBundle/Resources/config/routing/reference_data.yml'
+    prefix: /rest/v1

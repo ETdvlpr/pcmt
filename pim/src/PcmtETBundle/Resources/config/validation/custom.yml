@@ -1,0 +1,13 @@
+PcmtETBundle\Entity\ReferenceData\Manufacturer:
+    properties:
+        code:
+            - NotBlank: ~
+        name:
+            - NotBlank: ~
+
+PcmtETBundle\Entity\ReferenceData\EtBrand:
+    properties:
+        code:
+            - NotBlank: ~
+        name:
+            - NotBlank: ~

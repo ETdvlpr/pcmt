@@ -1,0 +1,5 @@
+# API
+api_ref_data_reference_data_get:
+  type: action
+  label: api_ref_data.acl.reference_data.get
+  group_name: api_ref_data.acl_group.reference_data_get

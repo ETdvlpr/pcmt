@@ -1,0 +1,23 @@
+######################################################################
+# Copyright (c) 2021, ETdvlpr
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+    acme.normalizer.etcountrycode:
+        class: 'PcmtETBundle\Normalizer\Standard\EtCountryCodeNormalizer'
+        tags:
+            - { name: pim_serializer.normalizer, priority: 200 }
+
+    acme.normalizer.manufacturer:
+        class: PcmtETBundle\Normalizer\Standard\ManufacturerNormalizer
+        arguments:
+            - '@acme.normalizer.etcountrycode'
+        tags:
+            - {name: pim_serializer.normalizer, priority: 200}
+
+    acme.normalizer.etbrand:
+        class: PcmtETBundle\Normalizer\Standard\EtBrandNormalizer
+        tags:
+            - {name: pim_serializer.normalizer, priority: 200}

@@ -1,0 +1,12 @@
+datagrid:
+    etcountrycode:
+        options:
+            entityHint: etcountrycode
+            manageFilters: false
+        source:
+            type: pim_datasource_default
+            entity: PcmtETBundle\Entity\ReferenceData\EtCountryCode
+            repository_method: createDataGridQueryBuilder
+        columns:
+            name:
+                label: Name
